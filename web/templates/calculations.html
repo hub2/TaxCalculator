@@ -1,15 +1,110 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Calculations{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-<ul>
-    <li>Total income: {{sv.total_income}}</li>
-    <li>Total loss: {{sv.loss}}</li>
-    <li>Total tax reductions: {{sv.taxable_income_reduction}}</li>
-    <li>Taxable income (income-loss-deductions): {{sv.taxable_income}}</li>
-    <li>Tax to pay (19%): {{sv.total_tax}}</li>
-</ul>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Raport podatkowy</h3>
+			<p>
+            Metodologia przyjęta do obliczenia podatku jest zgodna z obowiązującym prawem.
+            # TODO: tu dopisac dokladnie jak jest liczone
+            </p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Nazwa pola
+						</th>
+						<th>
+							Wartość
+						</th>
+						<th>
+							Nr Pola w PIT-38
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table-success">
+					 	<td>
+							1
+						</td>
+						<td>
+							Suma zysków
+						</td>
+                        <td>
+                            {{sv.total_income | round(2)}} PLN
+						</td>
+                        <td>
+							TBD
+						</td>
+					</tr>
+					<tr class="table-danger">
+						<td>
+							2
+						</td>
+						<td>
+							Suma strat
+						</td>
+                        <td>
+                            {{sv.loss | round(2)}} PLN
+						</td>
+                        <td>
+							TBD
+						</td>
+					</tr>
+					<tr>
+						<td>
+							3
+						</td>
+						<td>
+							Koszty uzyskania przychodu (prowizje)
+						</td>
+                        <td>
+                            {{sv.taxable_income_reduction | round(2)}} PLN
+						</td>
+                        <td>
+							TBD
+						</td>
+					</tr>
+					<tr>
+						<td>
+							4
+						</td>
+						<td>
+                            Podstawa opodatkowania
+                        </td>
+                        <td>
+                            {{sv.taxable_income | round(2)}} PLN
+						</td>
+                        <td>
+							TBD
+						</td>
+					</tr>
+					<tr class="table-warning">
+						<td>
+							5
+						</td>
+						<td>
+                            Podatek do zapłacenia (podatek Belki 19%)
+                        </td>
+                        <td>
+                            {{sv.total_tax | round(2)}} PLN
+						</td>
+                        <td>
+							TBD
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>Jeżeli pomogłem to daj bitcoiny. :)</p>
+		</div>
+	</div>
+</div>
 {% endblock %}

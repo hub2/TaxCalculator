@@ -1,13 +1,34 @@
 {% extends 'base.html' %}
 
 {% block header %}
-    <title>Upload transactions file from degiro</title>
 {% endblock %}
 
 {% block content %}
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+            <h3>Kalkulator Podatkowy - wgranie pliku</h3>
+            <p>Kalkulator służy do obliczania zysku, straty, kosztów uzyskania przychodu i wynikającego z tego podatku. Kalkulator liczy podatek zgodnie z moją najlepszą wiedzą, metodologie oraz uwzględnione zmienne podaje poniżej: TODO</p>
+            <p>Aby pobrać plik na którym opierać się będą obliczenia, postępuj jak na obrazku</p>
+            <p>1. Wybierz początkową i końcową - najlepiej cały rok 2020</p>
+            <p>2. Kliknij Pobierz</p>
+            <p>3. Wybierz format csv.</p>
+            <p>4. Wrzuć plik przez formularz poniżej</p>
+            
+            <img src="{{url_for('static', filename='img/tutorial.png')}}" />
+
+			<form role="form" method="post" enctype=multipart/form-data>
+				<div class="form-group">
+					<label for="exampleInputFile">
+						Tutaj załaduj plik Transactions.csv
+					</label>
+					<input name="file" type="file" class="form-control-file" id="exampleInputFile" />
+				</div>
+				<button type="submit" class="btn btn-primary">
+					Policz!
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
 {% endblock %}

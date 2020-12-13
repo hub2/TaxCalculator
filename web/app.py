@@ -8,8 +8,9 @@ from stock_market_tax import calculate_tax, load_user_transactions_from_file
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = {'csv'}
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['SECRET_KEY'] = secrets.token_hex(64)
 
 def allowed_file(filename):
     return '.' in filename and \
