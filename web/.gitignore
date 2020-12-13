@@ -1,3 +1,4 @@
+__pycache__/
 exchange_rates*
 uploads/*
 Transactions.csv
