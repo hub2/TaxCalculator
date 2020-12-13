@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Calculations{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<ul>
+    <li>Total income: {{sv.total_income}}</li>
+    <li>Total loss: {{sv.loss}}</li>
+    <li>Total tax reductions: {{sv.taxable_income_reduction}}</li>
+    <li>Taxable income (income-loss-deductions): {{sv.taxable_income}}</li>
+    <li>Tax to pay (19%): {{sv.total_tax}}</li>
+</ul>
+{% endblock %}
